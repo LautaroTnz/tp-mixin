@@ -25,15 +25,16 @@ class SuperUserRequiredMixin(UserPassesTestMixin):
             return redirect('superusuario')
         else:
             return redirect('usuario')
-
-##Explicación del Funcionamiento
-###test_func(self):
+```
+Explicación del Funcionamiento
+-
+#### test_func(self):
 Este método verifica si el usuario actual (self.request.user) es un superusuario (is_superuser). Devuelve True si lo es y False en caso contrario.
 
-handle_no_permission(self):
+#### handle_no_permission(self):
 Método llamado cuando test_func devuelve False, redirige al usuario a la vista 'usuario' destinada a los usuarios normales.
 
-form_valid(self, form):
+#### form_valid(self, form):
 Método que se ejecuta cuando el formulario de inicio de sesión es válido.
 Inicia sesión con el usuario autenticado usando login(self.request, form.get_user()).
 Redirige al usuario a diferentes vistas según su tipo:
@@ -42,10 +43,12 @@ Si no es superusuario, redirige a la vista 'usuario'.
 Este mixin se utiliza en las vistas del proyecto para asegurar que las redirecciones se manejen correctamente basándose en el tipo de usuario que inicia sesión.
 
 
-####Usuarios de prueba
+### Usuarios de prueba
 
-usuario: admin
-contraseña: contraseña1234
+- usuario: admin contraseña: contraseña1234
 
-usuario: usuarioprueba1
-contraseña: contraseña1234
+- usuario: usuarioprueba1 contraseña: contraseña1234
+
+-
+
+## REALIZADO POR: EMANUEL PADILLA
